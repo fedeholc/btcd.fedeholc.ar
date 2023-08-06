@@ -17,8 +17,8 @@ export default function Logo() {
             <Image
               src="/favicon-128x128.png"
               alt="mi gata rosita"
-              height={22}
-              width={22}
+              height={64}
+              width={64}
             ></Image>
             <div>are-bure-boke-blog</div>
           </div>

@@ -45,7 +45,8 @@
 
  .logo__descripcion>img {
    margin-bottom: 6px;
-
+    height: 24px;
+    width: auto;
  }
 
  .logo__colorRosa {

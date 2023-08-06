@@ -82,7 +82,7 @@ ul {
 }
 
 .layout__container {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   justify-content: center;
   grid-template-rows: auto 1fr auto;
