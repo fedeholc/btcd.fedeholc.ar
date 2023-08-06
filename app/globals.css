@@ -1,0 +1,346 @@
+:root {
+  --celeste: #00a1d3;
+  --violeta: #a92da3;
+  --naranja: #fd4d2e;
+  --verde: #769f52;
+  --rosa: #ff68a8;
+  --amarillo: #f8ca38;
+
+
+  --amarillo2: #FEC763;
+  --rosa2: #EA55B1;
+  --lila: #A992FA;
+  --azul: #00207F;
+
+  --linkNuevo: hsl(0, 0%, 95%);
+  --linkVisitado: hsl(0, 0%, 95%);
+
+  --casi-blanco: hsl(0, 0%, 99%);
+  --casi-blanco90: rgb(230, 230, 230);
+  --casi-blanco85: hsl(0, 0%, 85%);
+  --casi-blanco65: hsl(0, 0%, 65%);
+
+  --casi-negro: hsl(0, 0%, 5%);
+
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: rgb(20, 20, 20);
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-size: 18px;
+}
+
+svg.grainy_background {
+  opacity: 0.2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background: rgb(0, 0, 0);
+  filter: contrast(2);
+}
+
+/* para que todo lo que es enlace clickeable quede por arriba
+del filtro de la imagen de fondo */
+a {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+
+body {
+  font-weight: 400;
+  line-height: 1.5rem;
+  font-size: 1rem;
+
+}
+
+code,
+pre {
+  font-size: 0.85rem !important;
+}
+
+ul {
+  padding-inline-start: 1.5rem;
+}
+
+.homepage {
+  margin: 1rem 2rem;
+}
+
+.layout__wrapper {
+  display: grid;
+  justify-content: center;
+}
+
+.layout__container {
+  min-height: 100vh;
+  display: grid;
+  justify-content: center;
+  grid-template-rows: auto 1fr auto;
+  max-width: 800px;
+}
+
+a:visited {
+  color: var(--linkVisitado)
+}
+
+a {
+  color: var(--linkNuevo);
+  text-decoration-color: rgb(145, 145, 145, 0.8);
+  text-decoration-thickness: 2px;
+}
+
+.layout__main2 {
+  color: rgb(240, 240, 240);
+
+  box-shadow: none;
+  border: 2px solid rgb(75, 74, 74);
+
+  margin: 1rem 0.5rem;
+  max-width: 800px;
+  border-radius: 10px;
+
+  font-family: var(--font-neutra);
+  font-weight: 400;
+  font-size: 1.4rem;
+  letter-spacing: 0.05rem;
+
+  transition: color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+
+  background: rgba(0, 0, 0, 100%);
+
+  /*  z-index: 1;
+      background: rgba(0, 0, 0, 45%);   */
+}
+
+.layout__main__fondo {
+  background: rgba(0, 0, 0, 30%);
+  z-index: 1;
+  position: relative;
+  padding: 1rem;
+  border-radius: 10px;
+  height: 100%;
+}
+
+/* aporta una capa de oscuridad al fondo
+del layout__main*/
+
+
+
+
+
+.volver {
+  display: grid;
+  justify-content: right;
+
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0.5rem 2rem 1rem 2rem;
+}
+
+.volver>a {
+  text-decoration: none;
+  background-color: rgb(17, 17, 17);
+  border-radius: 20px;
+  padding: 0.2rem 1rem;
+  border: 2px solid black;
+}
+
+.volver>a:hover {
+  border: 2px solid gray;
+}
+
+.post__container {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  z-index: 2;
+  position: relative;
+  margin: 1rem 2rem;
+}
+
+
+
+ul,
+li {
+  list-style: none;
+}
+
+/*🔥⚒️☠️💔⭐*/
+li:before {
+  content: '⭐';
+  float: left;
+  margin-left: -1.5rem;
+  margin-top: 0px;
+  font-size: 0.7rem;
+  filter: saturate(0) contrast(1) brightness(0.5);
+}
+
+.post__container h1 {
+  font-size: 2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.post__container h2 {
+  font-size: 1.6rem;
+  margin-top: 2.2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.9rem;
+}
+
+.post__container h3 {
+  font-size: 1.4rem;
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.7rem;
+}
+
+.post__container ul {
+  margin-top: 0px;
+}
+
+.post__container p {
+  margin-bottom: 0.3rem;
+  margin-top: 0.3rem;
+}
+
+.post__titulo {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: 0rem;
+  margin-bottom: 1.5rem;
+  line-height: 2.2rem;
+  color: rgb(240, 240, 240);
+}
+
+.post__tags {
+  font-family: var(--font-montserrat), monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  line-height: 1.3rem;
+  border-top: 1px solid rgb(73, 73, 73);
+  border-bottom: 1px solid rgb(73, 73, 73);
+  padding: 0.4rem 0rem;
+  display: flex;
+  justify-content: right;
+  margin-bottom: 0.5rem;
+  margin-top: 3rem;
+}
+
+.post__fecha {
+  display: flex;
+  justify-content: right;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.apuntes__titulo {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 1.5rem;
+  /*estas dos lineas son necesarias para que el
+  texto se muestre sobre el filtro*/
+  z-index: 2;
+  position: relative;
+}
+
+.apuntes__item {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  line-height: 1.3rem;
+}
+
+.apuntes__item small {
+  font-size: 0.8rem;
+}
+
+
+
+/***media queries***/
+@media only screen and (max-width: 550px) {
+
+  html,
+  body {
+    font-size: 15px;
+  }
+
+  .post__container,
+  .homepage {
+    margin: 1rem 0.5rem;
+  }
+}
+
+
+
+/** el código que está a continuación es para el resaltado de sintaxis tomado de rehype prism si no me equivoco */
+
+[class^="language"] {
+  border-radius: 5px;
+  /*este lo sumé yo para ponerle borde redondeado al bloque de código*/
+}
+
+.code-highlight {
+  float: left;
+
+}
+
+.code-line {
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-left: 4px solid rgba(0, 0, 0, 0);
+  /* Set placeholder for highlight accent border color to transparent */
+
+  max-width: 200px;
+  /* esta línea la agregué yo para que no se desborde el código en pantallas pequeñas 
+  no sé bien que es lo que ocurre porque no pone el ancho
+  a 200px pero evita que sea más grande que la pantalla, adaptándose al tamaño */
+}
+
+.code-line.inserted {
+  background-color: rgba(16, 185, 129, 0.2);
+  /* Set inserted line (+) color */
+}
+
+.code-line.deleted {
+  background-color: rgba(239, 68, 68, 0.2);
+  /* Set deleted line (-) color */
+}
+
+.highlight-line {
+  margin-left: -16px;
+  margin-right: -16px;
+  background-color: rgba(55, 65, 81, 0.5);
+  /* Set highlight bg color */
+  border-left: 4px solid rgb(59, 130, 246);
+  /* Set highlight accent border color */
+}
+
+.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 16px;
+  margin-left: -8px;
+  color: rgb(156, 163, 175);
+  /* Line number color */
+  content: attr(line);
+}
