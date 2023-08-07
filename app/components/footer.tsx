@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className={Foot.container}>
       <div className={Foot.text}>
         <div className={Foot.nombre}>FEDERICO HOLC</div>
-        <div className={Foot.emoji}>⚡️</div>
+        <div className={Foot.emoji}>|</div>
         <a
           className={Foot.icon}
           href="https://fotos.fedeholc.ar"
