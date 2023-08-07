@@ -15,9 +15,8 @@ import {
   Roboto,
 } from "next/font/google";
 
- 
 export const neutra = localFont({
-  src: "../public/fonts/neutratext-book.otf",
+  src: "../public/fonts/neutratextbook.otf",
   variable: "--font-neutra",
 });
 
@@ -39,8 +38,6 @@ export const roboto = Roboto({
   /*   display: "swap",
    */ variable: "--font-roboto",
 });
-
- 
 
 export const archivo = Anaheim({
   weight: ["400"],
@@ -91,9 +88,11 @@ export default function RootLayout({
             <header className="">
               <NavBar></NavBar>
             </header>
- 
-              <main className="layout__main2"><div className="layout__main__fondo">{children}</div></main>
-       
+
+            <main className="layout__main2">
+              <div className="layout__main__fondo">{children}</div>
+            </main>
+
             <Footer></Footer>
           </div>
         </div>
