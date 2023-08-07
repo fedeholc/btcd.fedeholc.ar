@@ -29,6 +29,10 @@
 
 .icon {
   margin-top: 0.1rem;
+  filter: brightness(80%);
+}
+.icon:hover {
+  filter: brightness(1);
 }
 
 
