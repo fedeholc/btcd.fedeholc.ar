@@ -29,12 +29,16 @@
 
 .icon {
   margin-top: 0.1rem;
+  filter: brightness(80%);
+}
+.icon:hover {
+  filter: brightness(1);
 }
 
 
 .emoji {
-  filter: grayscale(1) contrast(80) invert(0) brightness(40%);
-  font-size: 0.9rem;
+  filter: grayscale(1) contrast(80) invert(0) brightness(30%);
+  font-size: 0.7rem;
 }
 
 @media (hover:none) {
