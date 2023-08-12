@@ -99,6 +99,10 @@ a {
   text-decoration-thickness: 2px;
 }
 
+a:hover {
+  text-decoration-color: rgba(226, 226, 226, 0.8);
+}
+
 .layout__main2 {
   color: rgb(240, 240, 240);
 
