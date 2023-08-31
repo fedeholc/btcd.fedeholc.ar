@@ -1,5 +1,7 @@
 import Date from "../../components/date";
 import { getPostData } from "../../lib/posts";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
 type PostProps = {
   params: {
@@ -8,6 +10,13 @@ type PostProps = {
 };
 
 export default async function Post({ params }: PostProps) {
+  const supabase = createServerComponentClient({ cookies });
+
+  const { data: comments } = await supabase
+    .from("btcd_comments")
+    .select()
+    .eq("post_id", decodeURI(params.id));
+
   const postData = await getPostData(params.id);
 
   let tags: string = "";
@@ -15,6 +24,7 @@ export default async function Post({ params }: PostProps) {
     tags = tags + tag + ", ";
   });
   tags = tags.slice(0, tags.length - 2); // le quita la coma y el espacio a la última */
+
   return (
     <section className="post__container">
       <div className="post__fecha">
@@ -28,6 +38,15 @@ export default async function Post({ params }: PostProps) {
       />
 
       <div className="post__tags">Tags: {tags}</div>
+
+      <div>
+        {comments?.map((comment) => (
+          <p key={comment.id}>
+            {comment.comment}
+            {decodeURI(params.id)}
+          </p>
+        ))}
+      </div>
     </section>
   );
 }
