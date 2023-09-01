@@ -26,12 +26,13 @@ export default async function Comments(props: { postId: string }) {
   return (
     <div className="comment__form">
       <form action={saveComment}>
-        {/*         <label htmlFor="userName">Nombre: </label>
-         */}{" "}
-        <input id="userName" name="userName" placeholder="Nombre" />
-        {/*         <label htmlFor="comment">Comentario: </label>
-         */}{" "}
-        <textarea id="comment" name="comment" placeholder="Comentario" />
+        <input required id="userName" name="userName" placeholder="Nombre" />
+        <textarea
+          required
+          id="comment"
+          name="comment"
+          placeholder="Comentario"
+        />
         <div className="button_container">
           <button type="submit">Enviar</button>
         </div>
