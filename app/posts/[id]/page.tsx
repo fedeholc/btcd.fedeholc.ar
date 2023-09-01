@@ -2,6 +2,8 @@ import Date from "../../components/date";
 import { getPostData } from "../../lib/posts";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import Comments from "../../components/comments";
+import Link from "next/link";
 
 type PostProps = {
   params: {
@@ -12,11 +14,13 @@ type PostProps = {
 export default async function Post({ params }: PostProps) {
   const supabase = createServerComponentClient({ cookies });
 
-  const { data: comments } = await supabase
+  // The fetched data is stored in a variable called `postComments`. The `data` property of the response object from Supabase is being destructured and assigned to this variable.
+  const { data: postComments } = await supabase
     .from("btcd_comments")
     .select()
     .eq("post_id", decodeURI(params.id));
 
+  console.log(postComments);
   const postData = await getPostData(params.id);
 
   let tags: string = "";
@@ -39,14 +43,32 @@ export default async function Post({ params }: PostProps) {
 
       <div className="post__tags">Tags: {tags}</div>
 
-      <div>
-        {comments?.map((comment) => (
-          <p key={comment.id}>
-            {comment.comment}
-            {decodeURI(params.id)}
-          </p>
-        ))}
-      </div>
+      {/*     <div className="volver">
+        <Link href="/">⬅ Volver</Link>
+      </div> */}
+
+      <details className="comments__wrapper">
+        <summary className="comments__title">Ver comentarios</summary>
+        <div className="comments__list">
+          {postComments?.map((comment) => (
+            <div className="comments__comment" key={comment.id}>
+              <div className="comment__header">
+                <span className="comment__name">{comment.name}:</span>
+
+                <div className="comment__date">
+                  <Date dateString={comment.created_at} />
+                </div>
+              </div>
+
+              <div className="comment__body">{comment.comment} </div>
+            </div>
+          ))}
+        </div>
+      </details>
+      <details>
+        <summary className="comments__title"> Escribir un comentario</summary>
+        <Comments postId={postData.id}></Comments>
+      </details>
     </section>
   );
 }

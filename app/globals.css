@@ -150,6 +150,7 @@ del layout__main*/
   font-size: 0.9rem;
   font-weight: 600;
   margin: 0.5rem 2rem 1rem 2rem;
+  transition: all 0.15s ease;
 }
 
 .volver>a {
@@ -158,6 +159,7 @@ del layout__main*/
   border-radius: 20px;
   padding: 0.2rem 1rem;
   border: 2px solid black;
+  transition: all 0.15s ease;
 }
 
 .volver>a:hover {
@@ -275,6 +277,124 @@ li:before {
 }
 
 
+.comments__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.comments__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(175, 175, 175);
+  margin-top: 1rem;
+}
+
+.comment__name {
+  font-weight: 700;
+  color: var(--casi-blanco85);
+}
+
+.comment__date {
+  font-size: 0.8rem;
+  color: var(--casi-blanco65);
+}
+
+.comments__comment {
+  /*   border: 2px solid rgb(61, 61, 61);
+ */
+  display: flex;
+  flex-direction: column;
+  color: var(--casi-blanco85);
+  margin-bottom: 2rem;
+}
+
+.comment__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 0.5rem;
+}
+
+.comment__body {
+  background-color: rgba(61, 61, 61, 0.2);
+  border-left: 2px solid rgb(61, 61, 61);
+  border-radius: 5px;
+  margin-left: 1rem;
+  padding: 1rem;
+}
+
+.comment__form {
+
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    color: var(--casi-blanco85);
+
+    border: 1px solid rgba(131, 131, 131, 0.5);
+    padding: 1rem;
+  
+  }
+
+  & input {
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: black;
+    background-color: var(--casi-blanco85);
+    font-size: 1rem;
+    border: 1px solid rgb(163, 163, 163);
+    max-width: 300px;
+    font-weight: 700;
+    font-family: var(--font-montserrat), sans-serif;
+  }
+
+  & ::placeholder {
+    color: rgb(31, 31, 31);
+  }
+
+  & textarea {
+    background-color: var(--casi-blanco85);
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: black;
+    font-size: 1rem;
+    border: 1px solid rgb(163, 163, 163);
+    font-weight: 700;
+    font-family: var(--font-montserrat), sans-serif;
+  }
+
+  & .button_container {
+    display: grid;
+    place-content: center;
+  }
+
+  & button {
+    font-weight: 700;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: var(--font-montserrat), sans-serif;
+    background-color: gray;
+    color: var(--casi-blanco99);
+    padding: 0.3rem 1rem;
+    color: black;
+    /*     border: 2px solid var(--casi-blanco85);
+ */
+    width: fit-content;
+    border: 2px solid var(--casi-blanco85);
+    margin-top: 0.5rem;
+    transition: all 0.15s ease;
+  }
+
+  & button:hover {
+    background-color: var(--casi-blanco85);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+}
 
 /***media queries***/
 @media only screen and (max-width: 550px) {
