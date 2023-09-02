@@ -21,7 +21,6 @@ export default async function Post({ params }: PostProps) {
     .select()
     .eq("post_id", decodeURI(params.id));
 
-  console.log(postComments);
   const postData = await getPostData(params.id);
 
   let tags: string = "";
