@@ -32,6 +32,7 @@ export default function CommentsClient(props: { postId: string }) {
             placeholder="Nombre"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
+            autoComplete="name"
           />
           <textarea
             required
