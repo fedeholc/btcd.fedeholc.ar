@@ -4,6 +4,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Comments from "../../components/comments";
 import Link from "next/link";
+import CommentsClient from "@/app/components/commentsClient";
 
 type PostProps = {
   params: {
@@ -67,7 +68,8 @@ export default async function Post({ params }: PostProps) {
       </details>
       <details>
         <summary className="comments__title"> Escribir un comentario</summary>
-        <Comments postId={postData.id}></Comments>
+        {/* <Comments postId={postData.id}></Comments> */}
+        <CommentsClient postId={postData.id}></CommentsClient>
       </details>
     </section>
   );

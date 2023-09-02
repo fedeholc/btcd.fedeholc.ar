@@ -323,8 +323,24 @@ li:before {
   padding: 1rem;
 }
 
-.comment__form {
+#comment__postId {
+  display: none;
+}
 
+.comment__sent {
+  display: grid;
+  place-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  color: var(--casi-blanco85);
+
+  border: 1px solid rgba(131, 131, 131, 0.5);
+  padding: 1rem;
+
+}
+
+.comment__form {
 
   & form {
     display: flex;
@@ -336,7 +352,7 @@ li:before {
 
     border: 1px solid rgba(131, 131, 131, 0.5);
     padding: 1rem;
-  
+
   }
 
   & input {
@@ -386,6 +402,7 @@ li:before {
     border: 2px solid var(--casi-blanco85);
     margin-top: 0.5rem;
     transition: all 0.15s ease;
+    place-self: center;
   }
 
   & button:hover {
