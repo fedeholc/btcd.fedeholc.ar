@@ -417,6 +417,23 @@ li:before {
 
 }
 
+
+.not_found__container {
+  display: grid;
+  justify-items: center;
+}
+
+.not_found__title {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 2rem;
+  line-height: 2.2rem;
+  color: rgb(240, 240, 240);
+  text-align: center;
+
+}
+
 /***media queries***/
 @media only screen and (max-width: 550px) {
 

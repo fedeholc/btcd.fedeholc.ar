@@ -7,7 +7,7 @@ import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypeComponents from "../rehype-components";
 import { h, s } from "hastscript";
-
+import { redirect } from "next/navigation";
 import rehypePrism from "rehype-prism-plus";
 
 const postsDirectory = path.join(process.cwd(), "blog-posts");
@@ -54,7 +54,14 @@ export function getAllPostIds() {
 
 export async function getPostData(id: string) {
   const fullPath = path.join(postsDirectory, `${decodeURI(id)}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  let fileContents: string;
+  try {
+    fileContents = fs.readFileSync(fullPath, "utf8");
+  } catch (error) {
+    console.error(`Error reading file: ${error}`);
+    redirect("/");
+  }
+
   const matterResult = JSON.parse(JSON.stringify(matter(fileContents)));
 
   /* esto es para transformar las imágenes del markdown (que se pasan como
@@ -85,7 +92,7 @@ export async function getPostData(id: string) {
     .process(matterResult.content);
 
   const contentHtml = processed2.value;
- 
+
   return {
     id,
     contentHtml,
