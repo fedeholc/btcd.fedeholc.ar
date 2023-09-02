@@ -2,7 +2,7 @@ import Date from "../../components/date";
 import { getPostData } from "../../lib/posts";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import Comments from "../../components/comments";
+import Comments from "../../components/commentsServerSide";
 import Link from "next/link";
 import CommentsClient from "@/app/components/commentsClient";
 

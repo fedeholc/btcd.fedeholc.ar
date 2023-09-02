@@ -1,3 +1,5 @@
+/* versión server side con form action, no la voy a usar porque no se puede hacer que se borren los inputs
+del formulario después del submit, para eso hay que usar un componente client */
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
