@@ -289,6 +289,10 @@ li:before {
   margin-top: 1rem;
 }
 
+.comments__title:hover {
+  cursor: pointer
+}
+
 .comment__name {
   font-weight: 700;
   color: var(--casi-blanco85);
