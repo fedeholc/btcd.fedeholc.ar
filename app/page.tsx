@@ -7,14 +7,14 @@ export default async function Home() {
 
   return (
     <section className="homepage">
-      <h2 className="apuntes__titulo">Últimos posteos:</h2>
+      <h2 className="apuntes__titulo">Últimos posteos</h2>
       <ul>
         {allPostsData.map(
           ({ id, date, title, draft }) =>
             !draft && (
               <li className="apuntes__item" key={id}>
                 <Link href={`/posts/${id}`}>{title}</Link>
-                {/*  <br />
+                {/*  
             <small>
               <Date dateString={date} />
             </small> */}

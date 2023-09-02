@@ -67,8 +67,7 @@ export default async function Post({ params }: PostProps) {
         </div>
       </details>
       <details>
-        <summary className="comments__title"> Escribir un comentario</summary>
-        {/* <Comments postId={postData.id}></Comments> */}
+        <summary className="comments__title">Escribir un comentario</summary>
         <CommentsClient postId={postData.id}></CommentsClient>
       </details>
     </section>
