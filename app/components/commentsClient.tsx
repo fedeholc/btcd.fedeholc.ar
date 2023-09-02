@@ -39,6 +39,7 @@ export default function CommentsClient(props: { postId: string }) {
             id="comment"
             name="comment"
             placeholder="Comentario"
+            value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
           />
           <button type="submit">Enviar</button>
