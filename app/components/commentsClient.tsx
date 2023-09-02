@@ -1,7 +1,6 @@
 "use client";
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 import { saveComment } from "./commentsClientSaveComment";
-import { set } from "date-fns";
 
 export default function CommentsClient(props: { postId: string }) {
   const [userName, setUserName] = useState("");
