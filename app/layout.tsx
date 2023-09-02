@@ -25,33 +25,29 @@ export const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
 });
-export const barriecito = Barriecito({
+/* export const barriecito = Barriecito({
   weight: ["400"],
   subsets: ["latin"],
-  /*   display: "swap",
-   */ variable: "--font-barriecito",
-});
+  variable: "--font-barriecito",
+}); */
 
-export const roboto = Roboto({
+/* export const roboto = Roboto({
   weight: ["400"],
   subsets: ["latin"],
-  /*   display: "swap",
-   */ variable: "--font-roboto",
-});
+  variable: "--font-roboto",
+}); */
 
-export const archivo = Anaheim({
+/* export const archivo = Anaheim({
   weight: ["400"],
   subsets: ["latin"],
-  /*   display: "swap",
-   */ variable: "--font-archivo",
-});
+  variable: "--font-archivo",
+}); */
 
-export const barlow = Barlow({
+/* export const barlow = Barlow({
   weight: ["400"],
   subsets: ["latin"],
-  /*   display: "swap",
-   */ variable: "--font-barlow",
-});
+  variable: "--font-barlow",
+}); */
 
 export const metadata: Metadata = {
   title: "BRILLOTOPÍA CROMADISTÓPICA",
@@ -64,10 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="es"
-      className={`${montserrat.variable} ${barriecito.variable} ${barlow.variable} ${roboto.variable} ${archivo.variable} ${neutra.variable} `}
-    >
+    <html lang="es" className={`${montserrat.variable} ${neutra.variable} `}>
       <meta charSet="utf-8" />
 
       <body>

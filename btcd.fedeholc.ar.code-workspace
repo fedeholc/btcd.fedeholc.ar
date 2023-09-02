@@ -1,8 +1,11 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../misdocs-privado/dev/mis repos notas/notas btcd"
+    }
+  ],
+  "settings": {}
 }
