@@ -1,10 +1,8 @@
 import Date from "../../components/date";
 import { getPostData } from "../../lib/posts";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import Comments from "../../components/commentsServerSide";
-import Link from "next/link";
-import CommentsClient from "@/app/components/commentsClient";
+import CommentsFormClient from "@/app/components/comments/commentsFormClient";
+import { Suspense } from "react";
+import CommentsList from "@/app/components/comments/commentsList";
 
 type PostProps = {
   params: {
@@ -13,14 +11,6 @@ type PostProps = {
 };
 
 export default async function Post({ params }: PostProps) {
-  const supabase = createServerComponentClient({ cookies });
-
-  // The fetched data is stored in a variable called `postComments`. The `data` property of the response object from Supabase is being destructured and assigned to this variable.
-  const { data: postComments } = await supabase
-    .from("btcd_comments")
-    .select()
-    .eq("post_id", decodeURI(params.id));
-
   const postData = await getPostData(params.id);
 
   let tags: string = "";
@@ -49,25 +39,15 @@ export default async function Post({ params }: PostProps) {
 
       <details className="comments__wrapper">
         <summary className="comments__title">Ver comentarios</summary>
-        <div className="comments__list">
-          {postComments?.map((comment) => (
-            <div className="comments__comment" key={comment.id}>
-              <div className="comment__header">
-                <span className="comment__name">{comment.name}:</span>
-
-                <div className="comment__date">
-                  <Date dateString={comment.created_at} />
-                </div>
-              </div>
-
-              <div className="comment__body">{comment.comment} </div>
-            </div>
-          ))}
-        </div>
+        <Suspense fallback={<p>Cargando comentarios...</p>}>
+          <CommentsList postId={params.id}></CommentsList>
+        </Suspense>
       </details>
       <details>
         <summary className="comments__title">Escribir un comentario</summary>
-        <CommentsClient postId={postData.id}></CommentsClient>
+        <Suspense fallback={<p>Cargando formulario...</p>}>
+          <CommentsFormClient postId={postData.id}></CommentsFormClient>
+        </Suspense>
       </details>
     </section>
   );

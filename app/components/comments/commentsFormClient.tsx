@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import { saveComment } from "./commentsClientSaveComment";
+import { saveComment } from "./commentsSaveComment";
 
-export default function CommentsClient(props: { postId: string }) {
+export default function CommentsFormClient(props: { postId: string }) {
   const [userName, setUserName] = useState("");
   const [commentText, setCommentText] = useState("");
   const [isCommentSent, setIsCommentSent] = useState(false);
