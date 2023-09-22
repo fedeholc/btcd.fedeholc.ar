@@ -25,7 +25,7 @@ export default function CommentsFormClient(props: { postId: string }) {
       {!session && (
         <div className="signIn">
           Para poder escribir primero inicia sesión (GitHub / Google)
-          <button onClick={() => signIn()}>Sign In</button>
+          <button onClick={() => signIn()}>Iniciar sesión</button>
         </div>
       )}
 
@@ -52,7 +52,7 @@ export default function CommentsFormClient(props: { postId: string }) {
             required
             id="comment"
             name="comment"
-            placeholder="Comentario"
+            placeholder="Escribí tu comentario acá..."
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
           />
