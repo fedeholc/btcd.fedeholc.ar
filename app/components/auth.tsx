@@ -15,9 +15,9 @@ function AuthButton() {
   if (session) {
     return (
       <div className={auth.auth__container}>
-        {/*         {session?.user?.email ?? ""}
-         */}
-        <button onClick={() => signOut()}>
+        <div className={auth.auth__mail}>{session?.user?.email ?? ""}</div>
+
+        <button className={auth.auth__button} onClick={() => signOut()}>
           <MdLogout />
         </button>
       </div>
@@ -25,8 +25,7 @@ function AuthButton() {
   }
   return (
     <div className={auth.auth__container}>
-      {/*  Not signed in <br /> */}
-      <button onClick={() => signIn()}>
+      <button className={auth.auth__button} onClick={() => signIn()}>
         <MdLogin />
       </button>
     </div>
