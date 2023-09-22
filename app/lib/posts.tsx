@@ -82,11 +82,11 @@ export async function getPostData(id: string) {
   const processed2 = await remark()
     .use(remarkParse)
     .use(remarkRehype)
-    .use(rehypeComponents, {
+   /*  .use(rehypeComponents, {
       components: {
         img: Images,
       },
-    })
+    }) */
     .use(rehypePrism)
     .use(rehypeStringify)
     .process(matterResult.content);
