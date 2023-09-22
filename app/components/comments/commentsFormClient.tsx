@@ -1,9 +1,12 @@
 "use client";
 import { useState } from "react";
 import { saveComment } from "./commentsSaveComment";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function CommentsFormClient(props: { postId: string }) {
-  const [userName, setUserName] = useState("");
+  const { data: session } = useSession();
+
+  const [userName, setUserName] = useState(session?.user?.name || "");
   const [commentText, setCommentText] = useState("");
   const [isCommentSent, setIsCommentSent] = useState(false);
 
@@ -17,7 +20,16 @@ export default function CommentsFormClient(props: { postId: string }) {
 
   return (
     <div className="comment__form">
-      {!isCommentSent && (
+      {/* {session && <button onClick={() => signOut()}>Sign Out</button>} */}
+
+      {!session && (
+        <div className="signIn">
+          Para poder escribir primero inicia sesión (GitHub / Google)
+          <button onClick={() => signIn()}>Sign In</button>
+        </div>
+      )}
+
+      {!isCommentSent && session && (
         <form action={handleForm}>
           <input
             id="comment__postId"
@@ -25,15 +37,17 @@ export default function CommentsFormClient(props: { postId: string }) {
             value={props.postId}
             readOnly
           />
-          <input
-            required
-            id="userName"
-            name="userName"
-            placeholder="Nombre"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            autoComplete="name"
-          />
+          <div>
+            <input
+              required
+              id="userName"
+              name="userName"
+              placeholder="Nombre"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              autoComplete="name"
+            />
+          </div>
           <textarea
             required
             id="comment"

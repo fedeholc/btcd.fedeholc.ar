@@ -1,0 +1,25 @@
+.auth__container {
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+  color: gray;
+
+}
+
+.auth__container button {
+
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  margin: 0;
+  height: 1rem;
+  padding-top: 0.1rem;
+  text-decoration: none;
+  width: min-content;
+  margin: 0;
+  padding: 0;
+}
+
+.auth__container>button:hover {
+  cursor: pointer
+}

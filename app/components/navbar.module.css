@@ -37,6 +37,7 @@
     flex-direction: row;
     justify-content: right;
     padding-top: 1rem;
+    align-items: baseline;
 
     padding-right: 0.6rem;
     column-gap: 0.5rem;
