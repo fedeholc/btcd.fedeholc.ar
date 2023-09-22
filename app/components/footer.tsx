@@ -1,11 +1,12 @@
 import Foot from "./footer.module.css";
 import { MdEmail, MdPhotoLibrary } from "react-icons/md";
 import { RiInstagramFill } from "react-icons/ri";
-
+import Prueba from "./prueba";
 export default function Footer() {
   return (
     <footer className={Foot.container}>
       <div className={Foot.text}>
+        <Prueba></Prueba>
         <div className={Foot.nombre}>FEDERICO HOLC</div>
         <div className={Foot.emoji}>|</div>
         <a

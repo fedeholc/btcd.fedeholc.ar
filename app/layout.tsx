@@ -7,13 +7,13 @@ import "./prism-line-numbers.css";
 import NavBar from "./components/navbar";
 import localFont from "next/font/local";
 
-import {
-  Montserrat,
-  Barriecito,
-  Barlow,
-  Anaheim,
-  Roboto,
-} from "next/font/google";
+import { Montserrat } from "next/font/google";
+
+import { getServerSession } from "next-auth";
+
+import SessionProvider from "./components/SessionProvider";
+
+
 
 export const neutra = localFont({
   src: "../public/fonts/neutratextbook.otf",
@@ -25,70 +25,50 @@ export const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
 });
-/* export const barriecito = Barriecito({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-barriecito",
-}); */
-
-/* export const roboto = Roboto({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-roboto",
-}); */
-
-/* export const archivo = Anaheim({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-archivo",
-}); */
-
-/* export const barlow = Barlow({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-barlow",
-}); */
 
 export const metadata: Metadata = {
   title: "BRILLOTOPÍA CROMADISTÓPICA",
   description: "are-bure-boke-blog",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
+
   return (
     <html lang="es" className={`${montserrat.variable} ${neutra.variable} `}>
       <meta charSet="utf-8" />
 
       <body>
-        <svg className="grainy_background" width="100%" height="100%">
-          <filter id="grano">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.8"
-              numOctaves="4"
-              stitchTiles="stitch"
-            />
-            <feColorMatrix type="saturate" values="0" />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#grano)"></rect>
-        </svg>
-        <div className="layout__wrapper">
-          <div className="layout__container">
-            <header className="">
-              <NavBar></NavBar>
-            </header>
-
-            <main className="layout__main2">
-              <div className="layout__main__fondo">{children}</div>
-            </main>
-
-            <Footer></Footer>
+        <SessionProvider session={session}>
+          <svg className="grainy_background" width="100%" height="100%">
+            <filter id="grano">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.8"
+                numOctaves="4"
+                stitchTiles="stitch"
+              />
+              <feColorMatrix type="saturate" values="0" />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#grano)"></rect>
+          </svg>
+          <div className="layout__wrapper">
+            <div className="layout__container">
+              <header className="">
+                <NavBar></NavBar>
+              </header>
+              <main className="layout__main2">
+                <div className="layout__main__fondo">{children}</div>
+              </main>
+              <Footer></Footer>
+             
+            </div>
           </div>
-        </div>
+        </SessionProvider>
       </body>
     </html>
   );
