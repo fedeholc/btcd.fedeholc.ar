@@ -1,3 +1,10 @@
+  .top {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-end;
+  }
+
   .navbar {
     display: flex;
     flex-wrap: wrap;
@@ -6,6 +13,7 @@
     column-gap: 3rem;
 
     color: whitesmoke;
+    padding-top: 1rem;
   }
 
   .navbar__logo {
@@ -15,7 +23,7 @@
 
 
     background-color: rgb(252, 252, 252);
-    margin: 1rem 0.5rem;
+    margin: 0.5rem 0.5rem 1rem 0.5rem;
     padding: 1rem 1rem;
     max-width: 800px;
     border-radius: 10px;
@@ -36,7 +44,7 @@
     display: flex;
     flex-direction: row;
     justify-content: right;
-    padding-top: 1rem;
+     align-items: baseline;
 
     padding-right: 0.6rem;
     column-gap: 0.5rem;
@@ -66,8 +74,9 @@
   }
 
   .navbar svg {
-    color:rgb(201, 201, 201);
+    color: rgb(201, 201, 201);
   }
-     .navbar svg:hover {
-       color: rgb(255, 255, 255);
-     }
+
+  .navbar svg:hover {
+    color: rgb(255, 255, 255);
+  }

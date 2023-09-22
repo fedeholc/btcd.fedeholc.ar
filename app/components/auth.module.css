@@ -1,0 +1,35 @@
+.auth__container {
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+  color: rgb(197, 197, 197);
+  gap: 0.5rem;
+  font-family: var(--font-montserrat);
+  font-weight: 400;
+  font-size: 0.8rem;
+  padding-left: 0.5rem;
+  line-height: 0.5rem;
+}
+
+.auth__container .auth__mail {
+  z-index: 2;
+}
+
+.auth__container .auth__button {
+
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  margin: 0;
+  height: 1rem;
+  padding-top: 0.1rem;
+  text-decoration: none;
+  width: min-content;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+}
+
+.auth__container>button:hover {
+  cursor: pointer
+}

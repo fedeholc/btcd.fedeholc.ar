@@ -64,29 +64,9 @@ export async function getPostData(id: string) {
 
   const matterResult = JSON.parse(JSON.stringify(matter(fileContents)));
 
-  /* esto es para transformar las imágenes del markdown (que se pasan como
-   img en html), en Image de next, pero no sirve porque si bien aparecen
-   como Image next las está optimizando, no sé por qué. 
-   TODO: Con lo cual lo podría sacar,
-   o dejar solo para cambiar el tamaño, o agregar alguna clase (habría que probar
-    cómo hacer esto, sino hay otros plugins para rehype que lo hacen */
-  const Images = (properties: any) => {
-    return h(`Image`, {
-      src: `${properties.src}`,
-      alt: "",
-      height: 100,
-      width: 100,
-    });
-  };
-
   const processed2 = await remark()
     .use(remarkParse)
     .use(remarkRehype)
-    .use(rehypeComponents, {
-      components: {
-        img: Images,
-      },
-    })
     .use(rehypePrism)
     .use(rehypeStringify)
     .process(matterResult.content);

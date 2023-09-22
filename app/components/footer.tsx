@@ -1,7 +1,7 @@
 import Foot from "./footer.module.css";
 import { MdEmail, MdPhotoLibrary } from "react-icons/md";
 import { RiInstagramFill } from "react-icons/ri";
-
+import Auth from "./auth";
 export default function Footer() {
   return (
     <footer className={Foot.container}>
@@ -26,6 +26,7 @@ export default function Footer() {
           <MdEmail></MdEmail>
         </a>
       </div>
+    {/*   <Auth></Auth> */}
     </footer>
   );
 }

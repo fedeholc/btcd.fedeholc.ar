@@ -346,7 +346,7 @@ li:before {
 
 .comment__form {
 
-  & form {
+  & form, .signIn {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
