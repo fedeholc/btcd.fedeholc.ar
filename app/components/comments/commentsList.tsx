@@ -2,6 +2,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Date from "../date";
 
+
 export default async function CommentsList(props: { postId: string }) {
   const { postId } = props;
   const supabase = createServerComponentClient({ cookies });
