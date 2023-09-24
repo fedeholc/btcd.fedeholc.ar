@@ -9,7 +9,7 @@ export default function NotFound() {
           No se encontró la página que buscabas
         </h1>
         <Image
-          src="/../public/favicon-128x128.png"
+          src="/../favicon-128x128.png"
           alt="logo"
           width={128}
           height={128}
