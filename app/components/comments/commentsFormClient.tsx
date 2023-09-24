@@ -42,7 +42,7 @@ export default function CommentsFormClient(props: { postId: string }) {
               required
               id="userName"
               name="userName"
-              placeholder="Nombre"
+              placeholder={session?.user?.name ?? "Nombre"}
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
               autoComplete="name"
