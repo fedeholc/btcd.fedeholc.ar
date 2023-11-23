@@ -16,3 +16,5 @@ slug: documentales-sobre-fotografia
 - Robert Frank: Don’t Blink (2015)
 - [Bill Cunningham: New York(2010)](https://www.imdb.com/title/tt1621444/)
 - [Alec Soth - Somewhere to Disappear (2010)](https://www.imdb.com/title/tt1871373/)
+- [Gregory Crewdson: Brief Encounters (2012)](https://www.imdb.com/title/tt2281267/)
+- [Vincent Munier - La panthère des neiges (2021)](https://www.imdb.com/title/tt11937680/)
