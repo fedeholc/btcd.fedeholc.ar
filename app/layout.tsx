@@ -13,14 +13,12 @@ import { getServerSession } from "next-auth";
 
 import SessionProvider from "./components/SessionProvider";
 
-
-
-export const neutra = localFont({
+const neutra = localFont({
   src: "../public/fonts/neutratextbook.otf",
   variable: "--font-neutra",
 });
 
-export const montserrat = Montserrat({
+const montserrat = Montserrat({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-montserrat",
@@ -65,7 +63,6 @@ export default async function RootLayout({
                 <div className="layout__main__fondo">{children}</div>
               </main>
               <Footer></Footer>
-             
             </div>
           </div>
         </SessionProvider>
