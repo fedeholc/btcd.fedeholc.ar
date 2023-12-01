@@ -1,4 +1,4 @@
-# BRILLOTOPÍA CROMADISTÓPICA - are-bure-boke-blog (v0.1)
+# BRILLOTOPÍA CROMADISTÓPICA - are-bure-boke-blog (v0.3)
 
 [![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/fedeholc/btcd.fedeholc.ar/blob/main/README.es.md)
 
