@@ -2,11 +2,11 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
-import { getServerSession } from "next-auth";
+import { auth } from "../../auth"
 
 export async function saveComment(dataF: FormData) {
   const supabase = createServerComponentClient({ cookies });
-  const session = await getServerSession();
+  const session = await auth();
 
   let postId = decodeURI(dataF.get("postId")?.toString() || "");
   const { data, error } = await supabase

@@ -1,6 +1,6 @@
 //cspell: disable
 import { redirect } from "next/navigation";
-import { getServerSession } from "next-auth";
+import { auth } from "../auth";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Date from "../components/date";
@@ -8,7 +8,7 @@ import dashboard from "./dashboard.module.css";
 import BotonBorrar from "./botonBorrar";
 
 export default async function ProtectedRoute() {
-  const session = await getServerSession();
+  const session = await auth();
   if (!session || !session.user) {
     redirect("/api/auth/signin");
   }
