@@ -9,11 +9,11 @@ export default async function Home() {
 
   return (
     <section className="homepage">
-      {session?.user?.name ? (
+      {/* {session?.user?.name ? (
         <div>{session?.user?.name}</div>
       ) : (
         <div>Not logged in</div>
-      )}
+      )} */}
       <h2 className="apuntes__titulo">Últimos posteos</h2>
       <ul>
         {allPostsData.map(
