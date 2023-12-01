@@ -9,7 +9,7 @@ import localFont from "next/font/local";
 
 import { Montserrat } from "next/font/google";
 
-import { getServerSession } from "next-auth";
+import { auth } from "./auth";
 
 import SessionProvider from "./components/SessionProvider";
 
@@ -34,7 +34,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession();
+  const session = await auth();
 
   return (
     <html lang="es" className={`${montserrat.variable} ${neutra.variable} `}>
