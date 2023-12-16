@@ -20,4 +20,5 @@ slug: documentales-sobre-fotografia
 - [Gregory Crewdson: Brief Encounters (2012)](https://www.imdb.com/title/tt2281267/)
 - [Vincent Munier - La panthère des neiges (2021)](https://www.imdb.com/title/tt11937680/)
 - [The B-Side: Elsa Dorfman's Portrait Photography (2016)](https://www.imdb.com/title/tt5952468/)
-- [William Eggleston: Photographer (2008)](https://www.imdb.com/title/tt1401646/)
+- [William Eggleston - The Colourful Mr Eggleston (2009)](https://www.imdb.com/title/tt3427812/)
+- [Garry Winogrand: All Things are Photographable (2018)](https://www.imdb.com/title/tt7977594/)
