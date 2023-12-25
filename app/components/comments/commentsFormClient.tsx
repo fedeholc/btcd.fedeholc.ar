@@ -9,14 +9,15 @@ export default function CommentsFormClient(props: { postId: string }) {
   const [userName, setUserName] = useState(session?.user?.name || "");
   const [commentText, setCommentText] = useState("");
   const [isCommentSent, setIsCommentSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleForm(formData: FormData) {
-    const { error } = await saveComment(formData);
+     const { error } = await saveComment(formData);
     if (error) console.error("Error guardando el comentario", error);
-    setUserName("");
+    //setUserName("");
     setCommentText("");
     setIsCommentSent(true);
-  }
+   }
 
   return (
     <div className="comment__form">
@@ -26,6 +27,11 @@ export default function CommentsFormClient(props: { postId: string }) {
         <div className="signIn">
           Para poder escribir primero inicia sesión (GitHub / Google)
           <button onClick={() => signIn()}>Iniciar sesión</button>
+        </div>
+      )}
+      {isLoading && !isCommentSent && (
+        <div className="comment__sent">
+          <p>Guardando...</p>
         </div>
       )}
 
@@ -56,7 +62,9 @@ export default function CommentsFormClient(props: { postId: string }) {
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
           />
-          <button type="submit">Enviar</button>
+          <button type="submit" onClick={() => setIsLoading(true)}>
+            Enviar
+          </button>
         </form>
       )}
 
