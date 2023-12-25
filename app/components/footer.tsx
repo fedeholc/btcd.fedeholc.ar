@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className={Foot.container}>
       <div className={Foot.text}>
-        <div className={Foot.nombre}>FEDERICO HOLC</div>
+        <div className={Foot.nombre}>FH</div>
         <div className={Foot.emoji}>|</div>
         <a
           className={Foot.icon}
@@ -26,7 +26,7 @@ export default function Footer() {
           <MdEmail></MdEmail>
         </a>
       </div>
-    {/*   <Auth></Auth> */}
+      {/*   <Auth></Auth> */}
     </footer>
   );
 }
