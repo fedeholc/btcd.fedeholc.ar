@@ -1,9 +1,10 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import { unstable_noStore as noStore } from "next/cache";
 import Date from "../date";
 
-
 export default async function CommentsList(props: { postId: string }) {
+  noStore(); // Fuerza que esta parte sea dinámica (SSR)
   const { postId } = props;
   const supabase = createServerComponentClient({ cookies });
 

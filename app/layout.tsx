@@ -12,6 +12,7 @@ import { Montserrat } from "next/font/google";
 import { auth } from "./auth";
 
 import SessionProvider from "./components/SessionProvider";
+import { getAllPostIds } from "./lib/posts";
 
 const neutra = localFont({
   src: "../public/fonts/neutratextbook.otf",
@@ -28,6 +29,8 @@ export const metadata: Metadata = {
   title: "BRILLOTOPÍA CROMADISTÓPICA",
   description: "are-bure-boke-blog",
 };
+
+
 
 export default async function RootLayout({
   children,
