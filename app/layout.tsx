@@ -1,18 +1,11 @@
-/* cspell:disable */
 import type { Metadata } from "next";
-import Footer from "./components/footer";
 import "./globals.css";
 import "./prism-material-dark.css";
 import "./prism-line-numbers.css";
-import NavBar from "./components/navbar";
 import localFont from "next/font/local";
-
 import { Montserrat } from "next/font/google";
-
-import { auth } from "./auth";
-
 import SessionProvider from "./components/SessionProvider";
-import { getAllPostIds } from "./lib/posts";
+import ClientLayout from "./components/clientLayout";
 
 const neutra = localFont({
   src: "../public/fonts/neutratextbook.otf",
@@ -30,21 +23,16 @@ export const metadata: Metadata = {
   description: "are-bure-boke-blog",
 };
 
-
-
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const session = await auth();
-
   return (
     <html lang="es" className={`${montserrat.variable} ${neutra.variable} `}>
       <meta charSet="utf-8" />
-
       <body>
-        <SessionProvider session={session}>
+        <SessionProvider>
           <svg className="grainy_background" width="100%" height="100%">
             <filter id="grano">
               <feTurbulence
@@ -57,17 +45,7 @@ export default async function RootLayout({
             </filter>
             <rect width="100%" height="100%" filter="url(#grano)"></rect>
           </svg>
-          <div className="layout__wrapper">
-            <div className="layout__container">
-              <header className="">
-                <NavBar></NavBar>
-              </header>
-              <main className="layout__main2">
-                <div className="layout__main__fondo">{children}</div>
-              </main>
-              <Footer></Footer>
-            </div>
-          </div>
+          <ClientLayout>{children}</ClientLayout>
         </SessionProvider>
       </body>
     </html>
