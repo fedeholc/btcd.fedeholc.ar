@@ -31,7 +31,7 @@ const rehypeComponents: Plugin<[Options], Root, Root> = function (options) {
       }
       node.properties;
       const component = components[node.tagName];
-      if (component && parent && index !== null) {
+      if (component && parent && typeof index === 'number') {
         const replacedNode = component(
           node.properties || {},
           node.children,

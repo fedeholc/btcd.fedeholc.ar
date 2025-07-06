@@ -5,19 +5,17 @@ import { Suspense } from "react";
 import CommentsList from "@/app/components/comments/commentsList";
 
 type PostProps = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
 export default async function Post({ params }: PostProps) {
-  const postData = await getPostData(params.id);
+  const { id } = await params;
+  const postData = await getPostData(id);
 
-  let tags: string = "";
-  postData.tags.forEach((tag: string, index: number) => {
-    tags = tags + tag + ", ";
-  });
-  tags = tags.slice(0, tags.length - 2); // le quita la coma y el espacio a la última */
+  const tags: string =
+    postData.tags && postData.tags.length > 0 ? postData.tags.join(", ") : "";
 
   return (
     <section className="post__container">
@@ -31,7 +29,7 @@ export default async function Post({ params }: PostProps) {
         dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
       />
 
-      <div className="post__tags">Tags: {tags}</div>
+      {tags && <div className="post__tags">Tags: {tags}</div>}
 
       {/*     <div className="volver">
         <Link href="/">⬅ Volver</Link>
@@ -40,7 +38,7 @@ export default async function Post({ params }: PostProps) {
       <details className="comments__wrapper">
         <summary className="comments__title">Ver comentarios</summary>
         <Suspense fallback={<p>Cargando comentarios...</p>}>
-          <CommentsList postId={params.id}></CommentsList>
+          <CommentsList postId={id}></CommentsList>
         </Suspense>
       </details>
       <details>

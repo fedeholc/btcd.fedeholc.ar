@@ -1,5 +1,5 @@
 import { parseISO, format } from "date-fns";
-import spanishLocale from "date-fns/locale/es";
+import { es as spanishLocale } from "date-fns/locale";
 
 export default function Date({ dateString }: { dateString: string }) {
   const date = parseISO(dateString);
