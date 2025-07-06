@@ -15,7 +15,7 @@ export default async function Home() {
           ({ id, date, title, draft, isInteractive }) =>
             !draft && (
               <li className="apuntes__item" key={id}>
-                <Link href={isInteractive ? `/posts/${id}` : `/posts/${id}`}>
+                <Link href={isInteractive ? `/posts-mdx/${id}` : `/posts/${id}`}>
                   {title} {isInteractive && "🚀"}
                 </Link>
                 {/*  

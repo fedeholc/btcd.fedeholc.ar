@@ -1,6 +1,6 @@
 import matter from "gray-matter";
 import fs from "fs";
-import path from "path";
+import path, { dirname } from "path";
 import { remark } from "remark";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
@@ -12,7 +12,7 @@ import rehypePrism from "rehype-prism-plus";
 import { compile } from "@mdx-js/mdx";
 
 const postsDirectory = path.join(process.cwd(), "blog-posts");
-const interactivePostsDirectory = path.join(process.cwd(), "app/posts");
+const interactivePostsDirectory = path.join(process.cwd(), "app/posts-mdx");
 
 export async function getSortedPostsData() {
   const allPostsData = [];
@@ -45,12 +45,12 @@ export async function getSortedPostsData() {
       .filter((dirent) => dirent.isDirectory())
       .map((dirent) => dirent.name)
       .filter((dirName) => dirName !== "[id]"); // Exclude the dynamic route folder
-
+    console.log("Interactive directories found:", interactiveDirs);
     for (const dirName of interactiveDirs) {
       const pageMdxPath = path.join(
         interactivePostsDirectory,
         dirName,
-        "page.mdx"
+        `${dirName}.mdx`
       );
 
       if (fs.existsSync(pageMdxPath)) {
